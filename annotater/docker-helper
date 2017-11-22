@@ -1,0 +1,26 @@
+docker pull mysql
+
+docker run --name docker-mysql -p 3300:3306 -e MYSQL_ROOT_PASSWORD=12345678 -d mysql
+docker run -it --name annotate-server -p 8003:8004 -v /home/ai-tools/annotater-server:/var/annotater-server ubuntu:16.04 /bin/bash
+
+apt update
+
+
+server
+apt install python-dev python-pip mysql-client libmysqlclient-dev -y
+pip install configparser  tornado  mysql-python qiniu
+
+cd /var/annotater-server
+nohup python HttpServerHelper.py >my.log &
+
+/tmp/...log
+
+
+
+upload
+apt install python-dev python-pip -y
+pip  pycrypto qiniu urllib2 configparser
+
+
+
+owtb74zhn.bkt.cloudd.com

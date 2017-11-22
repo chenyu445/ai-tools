@@ -1,0 +1,25 @@
+[SERVER]
+uploadfilehost = http://10.10.59.251:8003/api/uploadFileInfo
+createbuckethost = http://10.10.59.251:8003/api/createBucket
+
+[QINIUYUN]
+access_key = BrU07WtuzvGD3S1gyWTD55L6A65y188SJMSCVsiQ
+secret_key = eeUJK36KFZDwWjWrb8TsuIxadFxOoGXRcj0-0c_B
+domain = ovy6ljhqz.bkt.clouddn.com
+
+[BUCKET001]
+name = eyesoct
+domain = owtb74zhn.bkt.clouddn.com
+qiuniukey = 2015090711111.jpg
+privatekey = eyesoct-privatepem.key
+publickey = eyesoct-public.key
+types = 正常,神经上皮脱离,色素上皮层脱离,视网膜前膜,其他
+
+[BUCKET002]
+name = eyesoct
+domain = owtb74zhn.bkt.clouddn.com
+publickey = eyesoct-public.key
+qiniukey = c9c73daaff73a919100b17bf1a7813a1
+priatekey = eyesoct-private.key
+types = 正常,神经上皮脱离,色素上皮层脱离,视网膜前膜,其他
+

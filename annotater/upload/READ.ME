@@ -1,0 +1,29 @@
+upload脚本说明
+
+
+name = 'eyesoct'
+filetypes = ['正常', '神经上皮脱离', '色素上皮层脱离', '视网膜前膜', '其他']
+domain = 'owtb74zhn.bkt.clouddn.com'
+helper = UploadHelper()
+helper.createBucket(name,domain,filetypes)
+
+
+初始化一个uploadhelper后
+即可调用createbucket和uploadfileinfo方法
+
+
+main方法中分别提供了相关代码
+
+创建bucket：
+先在七牛云上创建bucket，name为七牛云上bucket-key
+domain即为内容管理页的外链默认域名
+然后指定filetypes为任务的分类所有类别
+指定name filetypes domain的值后即可创建bucket
+
+上传文件：
+直接调用uploadfileinfo即可,只需提供bucket的name，和要上传的文件的本地地址
+
+
+注意private-key是同一个bucket公用的，当不同的人上传同一个bucket里的文件时，务必保证每个人本地都已有key文件且一致
+
+上传文件的逻辑是先上传sql，再上传七牛云，所以在正式阶段，如果没有提示，请勿手动删除七牛云的文件

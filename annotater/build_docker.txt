@@ -1,0 +1,5 @@
+docker build -t ai-tools-server:1.0 .
+
+docker stop annotate-server & docker rm annotate-server
+
+docker run --name ai-tools -v /home/luke/workspace/ai-tools/annotater/local_config:/opt/server/Utils -p 8003:8004 -p 10001:10001 ai-tools-server:1.0

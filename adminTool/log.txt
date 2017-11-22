@@ -1,0 +1,13 @@
+
+> vue-recgnaize@1.0.0 start /home/luke/workspace/ai-tools/adminTool
+> node build/dev-server.js
+
+[HPM] Proxy created: /api  ->  =127.0.0.1:8004
+[HPM] Proxy rewrite rule created: "^/api" ~> "/api"
+> Starting dev server...
+
+Starting to optimize CSS...
+Processing static/css/app.adfdd1bf09868833b64468f14a19ed49.css...
+Processed static/css/app.adfdd1bf09868833b64468f14a19ed49.css, before: 544, after: 476, ratio: 87.5%
+> Listening at http://localhost:10001
+

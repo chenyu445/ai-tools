@@ -1,0 +1,37 @@
+=======================================软件安装===============================================
+安装docker:
+wget -qO- https://get.docker.com/ | sh
+
+如果需要用非root用户运行docker，只需把运行docker的用户加到docker组即可：
+sudo usermod -aG docker jacky
+
+安装git,执行update_ai_tools_docker.sh脚本需要git
+sudo apt-get install git
+
+======================================mysql docker============================================
+docker pull mysql 
+
+docker run --name docker-mysql -p 3300:3306 -e MYSQL_ROOT_PASSWORD=12345678 -d mysql
+
+======================================自动完成docker服务的更新=============================================
+./update_ai_tools_docker.sh 
+此过程需要输入git用户名密码
+======================================或者手动代码 docker=============================================
+//编译
+docker build -t ai-tools-server:1.0 .
+
+//将本地docker镜像保持成文件
+docker save ai-tools-server:1.0 -o ai-tools-server.tar
+
+//加载本地docker镜像文件
+docker load -i ai-tools-server.tar
+
+//停止并且删除本地正在运行的ai-tools容器
+docker stop ai-tools & docker rm ai-tools
+
+//启动ai-tools容器
+///opt/server/Utils是映射王斌的代码的配置目录,修改config.conf文件
+///opt/adminTool/config是陈羽的代码配置目录,修改init_start.sh文件
+docker run -d --restart=always --name ai-tools -v /home/ai-tools/ai-tools-config/server:/opt/server/Utils -v /home/ai-tools/ai-tools-config/adminTool:/opt/adminTool/config -p 8300:8004 -p 10001:10001 ai-tools-server:1.0
+
+-----------------------------------------------------------------------------------------

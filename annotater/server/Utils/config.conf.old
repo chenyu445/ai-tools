@@ -1,0 +1,14 @@
+[MYSQL]
+basename = velosiis
+host = 10.10.59.251
+user = root
+passwd = 12345678
+port = 3300
+
+[SERVER]
+host = 10.10.59.251
+port = 8004
+
+[QINIUYUN]
+access_key = BrU07WtuzvGD3S1gyWTD55L6A65y188SJMSCVsiQ
+secret_key = eeUJK36KFZDwWjWrb8TsuIxadFxOoGXRcj0-0c_B

@@ -1,0 +1,15 @@
+*.jpg
+anoy/*
+*.key
+*.pyc
+annotater/.idea/*
+*/node_modules/*
+*/public/*
+<<<<<<< HEAD
+
+annotater/upload/Utils/config2\.conf
+
+annotater/server/Utils/config2\.conf
+=======
+ai-tools-server.tar
+>>>>>>> develop

@@ -1,0 +1,39 @@
+FROM bys-cd.chinacloudapp.cn/library/ubuntu:16.04
+
+USER root
+
+#RUN echo "deb http://ubuntu.cn99.com/ubuntu/ xenial-security universe" >> /etc/apt/sources.list
+
+RUN apt-get update && apt-get install python-dev python-pip mysql-client libmysqlclient-dev curl libssl-dev git -y 
+
+RUN pip install configparser  tornado  mysql-python qiniu
+
+ADD annotater/server /opt/server
+
+ENV N_PREFIX /opt/n
+ENV PATH ${PATH}:${N_PREFIX}/bin
+ENV LANG en_US.UTF-8
+
+RUN curl -L https://git.io/n-install | bash -s -- -y 6.9.5 && n 6.9.5
+
+###RUN npm install -g nrm && nrm use taobao
+
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+ADD adminTool /opt/adminTool
+
+ADD adminTool/tools/phantomjs-2.1.1-linux-x86_64.tar.bz2 /tmp/phantomjs-2.1.1-linux-x86_64.tar.bz2
+
+WORKDIR /opt/adminTool
+
+RUN cnpm install
+####--registry=https://registry.npm.taobao.org
+
+EXPOSE 10001
+EXPOSE 8004
+
+WORKDIR /opt
+ADD start.sh /opt/
+
+ENTRYPOINT ["sh","start.sh"]
+
